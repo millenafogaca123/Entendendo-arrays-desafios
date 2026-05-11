@@ -1,0 +1,32 @@
+// IMPORTANTE: As funções "gets" e "print" são acessíveis globalmente.
+
+// Lê a entrada JSON
+var input = gets();
+
+// Converte a string JSON para um array de objetos
+var cursos = [];
+try {
+  cursos = JSON.parse(input);
+} catch (e) {
+  cursos = [];
+}
+
+// Lista para armazenar apenas os nomes dos cursos que passarem no filtro
+var disponiveis = [];
+
+// Percorre o array de cursos
+for (var i = 0; i < cursos.length; i++) {
+  var curso = cursos[i];
+
+  // Verifica se o objeto existe e se a propriedade disponivel é verdadeira
+  if (curso && curso.disponivel === true) {
+    disponiveis.push(curso.nome);
+  }
+}
+
+// Imprime os nomes encontrados ou a mensagem de erro caso a lista esteja vazia
+if (disponiveis.length > 0) {
+  print(disponiveis.join(", "));
+} else {
+  print("Nenhum curso disponivel");
+}
