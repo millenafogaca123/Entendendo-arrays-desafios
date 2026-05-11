@@ -1,0 +1,19 @@
+// IMPORTANTE: As funções "gets" e "print" são acessíveis globalmente.
+
+const entrada = gets();
+
+// 1. Separar os nomes por vírgula para criar um Array
+const nomes = entrada.split(',');
+
+// 2. Ordenar ignorando maiúsculas/minúsculas
+nomes.sort((a, b) => {
+  const x = a.trim().toLowerCase(); // trim() remove espaços extras se houver
+  const y = b.trim().toLowerCase();
+  
+  if (x < y) return -1;
+  if (x > y) return 1;
+  return 0;
+});
+
+// 3. Juntar de volta com vírgula e imprimir
+print(nomes.join(','));
