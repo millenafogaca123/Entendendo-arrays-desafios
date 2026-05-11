@@ -1,0 +1,20 @@
+// IMPORTANTE: As funções "gets" e "print" são acessíveis globalmente.
+
+const senha = gets();
+
+/**
+ * Explicação da Regex /^[a-z]+[1-9][0-9]*$/:
+ * ^         - Início da string.
+ * [a-z]+    - Uma ou mais letras minúsculas.
+ * [1-9]     - O primeiro dígito numérico deve ser de 1 a 9 (evita zero à esquerda).
+ * [0-9]*    - Seguido por zero ou mais dígitos de 0 a 9.
+ * $         - Fim da string.
+ */
+const regex = /^[a-z]+[1-9][0-9]*$/;
+
+// O método .test() retorna true se a string obedecer ao padrão
+if (regex.test(senha)) {
+  print("valida");
+} else {
+  print("invalida");
+}
